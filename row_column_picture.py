@@ -201,33 +201,17 @@ class LinearEquationVisualizer:
         while True:
             print("\n--- 메뉴 ---")
             print("1. 계수 입력 (a b c d 형식)")
-            print("2. 방정식 입력 (예: 2x + 3y - z = 5)")
-            print("3. 예제 실행")
-            print("4. 종료")
+            print("2. 예제 실행")
+            print("3. 종료")
             
-            choice = input("\n선택하세요 (1-4): ").strip()
+            choice = input("\n선택하세요 (1-3): ").strip()
             
             if choice == '1':
                 equations = self.get_equation_from_user()
                 if equations:
                     self.visualize(equations)
-                    
+                           
             elif choice == '2':
-                equations = []
-                print("\n방정식 3개를 입력하세요 (예: 2x + 3y - z = 5)")
-                for i in range(3):
-                    eq_str = input(f"방정식 {i+1}: ").strip()
-                    eq = self.parse_equation_string(eq_str)
-                    if eq:
-                        equations.append(eq)
-                        print(f"파싱 결과: {eq[0]}x + {eq[1]}y + {eq[2]}z = {eq[3]}")
-                    else:
-                        print("잘못된 형식입니다. 다시 시도하세요.")
-                        break
-                else:
-                    self.visualize(equations)
-                    
-            elif choice == '3':
                 print("\n예제를 선택하세요:")
                 print("1. x = 3, y = 2, z = 1 (유일해)")
                 print("2. x+y=3, y+z=4, x+z=5 (유일해)")
@@ -245,7 +229,7 @@ class LinearEquationVisualizer:
                     continue
                 self.visualize(equations)
                 
-            elif choice == '4':
+            elif choice == '3':
                 print("프로그램을 종료합니다.")
                 break
                 
